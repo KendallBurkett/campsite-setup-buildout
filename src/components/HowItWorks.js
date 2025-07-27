@@ -10,7 +10,7 @@ const tabs = [
           <li><em className="text-green-500">McKinney Falls</em></li>
           <li>
             <em className="text-green-500">Krause Springs:</em>
-            <div className="mt-1 text-gray-400 italic">
+            <div className="mt-1 text-gray-300 italic">
               To book this location please call <span className="text-green-500 not-italic">(401) 236-7554</span>
             </div>
           </li>
@@ -80,16 +80,19 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="bg-white text-black py-16 px-4 max-w-4xl mx-auto rounded-lg shadow-xl">
+    <section className="bg-black bg-opacity-60 text-white py-16 px-4 max-w-4xl mx-auto rounded-lg">
       <h2 className="text-3xl font-bold text-center mb-8">How It Works</h2>
       <div className="space-y-4">
         {tabs.map((tab, index) => (
           <div key={index} className="border border-gray-300 rounded-md overflow-hidden">
             <button
               onClick={() => toggleTab(index)}
-              className="w-full text-left px-6 py-4 bg-gray-100 font-semibold text-xl focus:outline-none hover:bg-gray-200"
+              className="w-full flex justify-between items-center px-6 py-4 bg-gray-100 text-black font-semibold text-xl focus:outline-none hover:bg-gray-200"
             >
-              {tab.title}
+              <span>{tab.title}</span>
+              <span className="text-2xl text-gray-600">
+                {activeIndex === index ? '−' : '+'}
+              </span>
             </button>
             {activeIndex === index && (
               <div className="bg-gray-900 text-white transition-all duration-300 ease-in-out">
